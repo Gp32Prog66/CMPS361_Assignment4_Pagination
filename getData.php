@@ -8,7 +8,6 @@
     $data = json_decode( $response, true );
 
     
-
     //Validating that Data Exists
     if ($data && is_array($data)) {
         //Building Table
@@ -22,7 +21,7 @@
         
         //Could be causing issues
        
-        $currentPage = isset($_GET['Page']) ? (int)$_GET['page'] : 1;
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1; //P instead of p
 
         //Calculate Starting Index of the Current Page
        if ($currentPage < 1) {
@@ -65,6 +64,7 @@
         echo "</table>";
 
         echo "<div style='margin-top: 20px;'>";
+
         //Display Previous link if not on first page
         if ($currentPage > 1) {
             echo '<a href=?page=' . ($currentPage - 1) .'">Previous</a> ';
